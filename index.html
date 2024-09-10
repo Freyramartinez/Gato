@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego "Gato y Ratón" en python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #0d16c1;
+        }
+        h2 {
+            color: #73ba47;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        @media (max-width: 600px) {
+            body {
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>"Juego del Gato"</h1>
+    
+    <h2>Introducción</h2>
+    <ul>
+        <li>Diseño</li>
+        <li>planteamiento sobre el diseño del juego del gato y el raton utilizando el lenjuage de pyhton</li>
+    </ul>
+    <p> nuestro equipo ha diseñado una estrictura para poder realizar y programar lo que se le llama el juego del gato y el raton para ello hemos planteado lo siguiente </p>
+
+    <h2>1. Clase Gato</h2>
+    <ul>
+        <li><strong>Descripción</strong>dentro de esta clase hay un constructor llamado init en donde se inizializan los atributos como: </li>
+        <li>self.window=tk.TK(): este crea una ventana usando la funcion tk </li>
+        <li> self.winfow.title("el gato y el raton"):este agrega el titulo del gato y el raton </li>
+        <h3> tablero: </h3>
+        <ul>
+            <li>Tipo: list</li>
+            <li>Descripción: Representa el tablero del juego como una matriz de 3x3.</li>
+    </ul>
+           <h3>jugador_actual:</h3> 
+           <ul>            
+            <li>tipo: int (o str si prefieres usar símbolos)</li>
+            <li>Descripción: Indica qué jugador está en turno (1 o 2, o los símbolos "X" y "O").</li>
+
+            </ul>
+
+            <h3>Turnos:</h3>
+            <ul>
+            <li>Tipo: int</li>
+            <li>Descripción: Contador de los turnos jugados para llevar un registro y verificar el empate.</li>
+            </ul>
+            <h3>Ganaador:</h3>
+            <ul>
+                <li>Tipo: str (o None)</li>
+            <li>Descripción: Almacena el símbolo del jugador que ha ganado ("X", "O") o None si no hay ganador.</li>
+            </ul>
+            <h3>Empate</h3>
+            <ul>
+            <li>Tipo: bool</li>
+            <li>Descripción: Indica si el juego ha terminado en empate.</li>
+            </ul>
+        <h4>Métodos:</h4>
+        <ul>
+            <li><strong>inicializar_tablero()</strong>: Inicializa el tablero como una matriz de 3x3 utilizando listas.</li>
+            <li><strong>movimiento(coordenada)</strong>: Cambia el símbolo en la posición especificada por la coordenada. Actualiza la variable de jugador actual.</li>
+            <li><strong>turno()</strong>: Controla los turnos de los jugadores. Alterna entre Jugador 1 y Jugador 2.</li>
+            <li><strong>empate()</strong>: Verifica si el tablero está lleno y no hay ganador. Devuelve verdadero si hay un empate.</li>
+            <li><strong>ganador()</strong>: Verifica si hay un ganador. Comprueba si un símbolo se repite tres veces en filas, columnas o diagonales. Devuelve verdadero si hay un ganador.</li>
+        </ul>
+    </ul>
+
+    <h3>2. Clase Jugador1</h3>
+    <ul>
+        <li><strong>Descripción</strong>: Subclase que hereda de Gato.</li>
+        <li><strong>Métodos</strong>: Hereda todos los métodos de la clase Gato.</li>
+    </ul>
+
+    <h3>3. Clase Jugador2</h3>
+    <ul>
+        <li><strong>Descripción</strong>: Subclase que hereda de Gato.</li>
+        <li><strong>Métodos</strong>: Hereda todos los métodos de la clase Gato.</li>
+    </ul>
+
+  
+</body>
