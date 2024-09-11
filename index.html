@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego "Gato y Ratón" en python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #0d16c1;
+        }
+        h2 {
+            color: #73ba47;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        @media (max-width: 600px) {
+            body {
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+
+
+
+    <h1>"Juego del Gato"</h1>
+    
+    <h2>Introducción</h2>
+    <ul>
+        <li>Diseño</li>
+        <li>Planteamiento sobre el diseño del juego del gato y el raton utilizando el lenjuage de pyhton</li>
+    </ul>
+    <p> Nuestro equipo ha diseñado una estrictura para poder realizar y programar lo que se le llama el juego del gato y el raton para ello hemos planteado lo siguiente </p>
+
+    <h2>1. Clase Gato</h2>
+    <ul>
+        <li><strong>Descripción: </strong> Dentro de esta clase hay un constructor llamado init en donde se inizializan los atributos como: </li>
+        <li>self.window=tk.TK(): este crea una ventana usando la funcion tk </li>
+        <li> self.window.title("el gato y el raton"):este agrega el titulo del gato y el raton </li>
+        <li>self.window.geometry: Da el tamaño de la ventana</li>
+        <li>self.player_turn: inicia el juego con "O"</li>
+        
+
+
+
+    <p><strong> <code>import tkinter as tk</code> y <code>from tkinter import messagebox</code></strong><br>
+    - <code>tkinter</code> es un módulo estándar de Python que permite crear interfaces gráficas. <code>tk</code> es un alias para simplificar el uso del módulo.<br>
+    - <code>messagebox</code> es un submódulo de tkinter que permite mostrar mensajes emergentes (como alertas o información).</p>
+
+    <p><strong> <code>class Gato:</code></strong><br>
+    - Se define una clase llamada <code>Gato</code> que contiene toda la lógica del juego.</p>
+
+    <p><strong> <code>def __init__(self):</code></strong><br>
+    - Este es el <strong>constructor</strong> de la clase. Todo lo que está dentro de esta función se ejecuta cuando se crea una nueva instancia de <code>Gato</code>.</p>
+
+    <p><strong> <code>self.window = tk.Tk()</code></strong><br>
+    - Crea la ventana principal del juego usando la función <code>Tk()</code> de tkinter.</p>
+
+    <p><strong> <code>self.window.title("Juego del gato")</code></strong><br>
+    - Define el título de la ventana como "Juego del gato".</p>
+
+    <p><strong> <code>self.window.geometry("250x250")</code></strong><br>
+    - Define el tamaño de la ventana (250 píxeles de ancho y 250 de alto).</p>
+
+    <p><strong> <code>self.player_turn = "o"</code></strong><br>
+    - Inicializa una variable para controlar el turno del jugador. El primer turno lo tiene el jugador con la "o".</p>
+
+    <p><strong> <code>self.buttons = []</code></strong><br>
+    - Crea una lista vacía llamada <code>buttons</code> donde se almacenarán los botones que representarán las celdas del tablero de 3x3.</p>
+
+    <p><strong> <code>for i in range(3):</code></strong><br>
+    - Este bucle for se ejecuta 3 veces, representando las 3 filas del tablero.</p>
+
+    <p><strong> <code>row = []</code></strong><br>
+    - Crea una lista vacía para almacenar los botones de cada fila.</p>
+
+    <p><strong> <code>for j in range(3):</code></strong><br>
+    - Otro bucle for que se ejecuta 3 veces dentro de cada fila, representando las 3 columnas del tablero.</p>
+
+    <p><strong> <code>button = tk.Button(...)</code></strong><br>
+    - Crea un botón para cada celda del tablero.<br>
+    - <code>self.window</code>: El botón se agrega a la ventana.<br>
+    - <code>command=lambda row=i, column=j: self.click(row, column)</code>: Esta línea define la acción que debe ocurrir cuando se hace clic en el botón. Usa <code>lambda</code> para pasar la fila y columna actuales a la función <code>self.click</code>.<br>
+    - <code>height=3, width=6</code>: Define el tamaño del botón.</p>
+
+    <p><strong> <code>button.grid(row=i, column=j)</code></strong><br>
+    - Posiciona el botón en la ventana, en la fila <code>i</code> y la columna <code>j</code> del tablero.</p>
+
+    <p><strong> <code>row.append(button)</code></strong><br>
+    - Agrega el botón recién creado a la lista <code>row</code> que representa una fila del tablero.</p>
+
+    <p><strong> <code>self.buttons.append(row)</code></strong><br>
+    - Después de crear una fila completa, agrega esa fila a la lista <code>self.buttons</code>. De esta forma, se construye una estructura de 3x3 (matriz) que contiene todos los botones del tablero.</p>
+
+    <p><strong> <code>def click(self, row, column):</code></strong><br>
+    - Define una función que se ejecuta cuando se hace clic en un botón del tablero.</p>
+
+    <p><strong> <code>if self.buttons[row][column]['text'] == "":</code></strong><br>
+    - Verifica si el botón en la posición <code>row, column</code> está vacío. Si el botón ya tiene un texto (o "x" o "o"), no se hará nada.</p>
+
+    <p><strong> <code>self.buttons[row][column]['text'] = self.player_turn</code></strong><br>
+    - Si el botón está vacío, se le asigna el texto correspondiente al turno del jugador actual ("o" o "x").</p>
+
+    <p><strong> <code>if self.check_win():</code></strong><br>
+    - Llama a la función <code>check_win()</code> para verificar si algún jugador ha ganado después de hacer clic.</p>
+
+    <p><strong> <code>messagebox.showinfo("Juego terminado", f"El jugador {self.player_turn} gana.")</code></strong><br>
+    - Si hay un ganador, muestra un mensaje emergente con la información de quién ha ganado.</p>
+
+    <p><strong> <code>self.window.quit()</code></strong><br>
+    - Después de mostrar el mensaje de ganador, cierra la ventana y termina el juego.</p>
+
+    <p><strong> <code>self.player_turn = "x" if self.player_turn == "o" else "o"</code></strong><br>
+    - Alterna el turno entre los jugadores. Si el turno era de "o", ahora será de "x", y viceversa.</p>
+
+    <p><strong> <code>def check_win(self):</code></strong><br>
+    - Define una función para verificar si hay un ganador.</p>
+
+    <p><strong> <code>for row in self.buttons:</code></strong><br>
+    - Recorre cada fila de la matriz <code>self.buttons</code>.</p>
+
+    <p><strong> <code>if row[0]['text'] == row[1]['text'] == row[2]['text'] != "":</code></strong><br>
+    - Verifica si los tres botones de la fila tienen el mismo texto y no están vacíos. Si es así, significa que hay un ganador en esa fila.</p>
+
+    <p><strong> <code>for column in range(3):</code></strong><br>
+    - Recorre las tres columnas del tablero.</p>
+
+    <p><strong> <code>if self.buttons[0][column]['text'] == self.buttons[1][column]['text'] == self.buttons[2][column]['text'] != "":</code></strong><br>
+    - Verifica si los tres botones de la columna tienen el mismo texto y no están vacíos. Si es así, hay un ganador en esa columna.</p>
+
+    <p><strong> <strong>Diagonales:</strong></strong><br>
+    - Se comprueban las dos diagonales del tablero:<br>
+    - <strong>Diagonal principal:</strong> <code>self.buttons[0][0], self.buttons[1][1], self.buttons[2][2]</code>.<br>
+    - <strong>Diagonal secundaria:</strong> <code>self.buttons[0][2], self.buttons[1][1], self.buttons[2][0]</code>.</p>
+
+    <p><strong> <code>def run(self):</code></strong><br>
+    - Esta función simplemente inicia el bucle principal del juego y muestra la ventana.</p>
+
+    <p><strong> <code>if __name__ == "__main__":</code></strong><br>
+    - Este bloque asegura que el código dentro de él se ejecuta solo cuando el archivo se ejecuta directamente, y no si se importa como un módulo en otro archivo.</p>
+
+    <p><strong> <code>game = Gato()</code></strong><br>
+    - Crea una instancia del juego.</p>
+
+    <p><strong> <code>game.run()</code></strong><br>
+    - Llama a la función <code>run()</code> para iniciar el juego.</p>
+
+</body>
+</html>
