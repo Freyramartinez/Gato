@@ -64,7 +64,7 @@
     <p><strong> <code>class Gato:</code></strong><br>
     - Se define una clase llamada <code>Gato</code> que contiene toda la lógica del juego.</p>
 
-    <p><strong> <code>def __init__(self):</code></strong><br>
+    <h2><p><strong> <code>def __init__(self):</code></strong><br></h2>
     - Este es el <strong>constructor</strong> de la clase. Todo lo que está dentro de esta función se ejecuta cuando se crea una nueva instancia de <code>Gato</code>.</p>
 
     <p><strong> <code>self.window = tk.Tk()</code></strong><br>
@@ -106,7 +106,7 @@
     <p><strong> <code>self.buttons.append(row)</code></strong><br>
     - Después de crear una fila completa, agrega esa fila a la lista <code>self.buttons</code>. De esta forma, se construye una estructura de 3x3 (matriz) que contiene todos los botones del tablero.</p>
 
-    <p><strong> <code>def click(self, INTrow, INTcolumn):</code></strong><br>
+    <h2><p><strong> <code>def click(self, INTrow, INTcolumn):</code></strong><br></h2>
     - Define una función que se ejecuta cuando se hace clic en un botón del tablero.</p>
 
     <p><strong> <code>if self.buttons[row][column]['text'] == "":</code></strong><br>
@@ -127,7 +127,7 @@
     <p><strong> <code>self.player_turn = "x" if self.player_turn == "o" else "o"</code></strong><br>
     - Alterna el turno entre los jugadores. Si el turno era de "o", ahora será de "x", y viceversa.</p>
 
-    <p><strong> <code>def check_win(self):</code></strong><br>
+    <h2><p><strong> <code>def check_win(self):</code></strong><br></h2>
     - Define una función para verificar si hay un ganador.</p>
 
     <p><strong> <code>for row in self.buttons:</code></strong><br>
@@ -147,10 +147,10 @@
     - <strong>Diagonal principal:</strong> <code>self.buttons[0][0], self.buttons[1][1], self.buttons[2][2]</code>.<br>
     - <strong>Diagonal secundaria:</strong> <code>self.buttons[0][2], self.buttons[1][1], self.buttons[2][0]</code>.</p>
 
-    <p><strong> <code>def reset(self):</code></strong><br>
+    <h2><p><strong> <code>def reset(self):</code></strong><br></h2>
         - Esta función reinicia la partida al terminar el juego y borra el contenido de las posiciones.</p>
     
-    <p><strong> <code>def run(self):</code></strong><br>
+    <h2><p><strong> <code>def run(self):</code></strong><br></h2>
     - Esta función simplemente inicia el bucle principal del juego y muestra la ventana.</p>
 
     <p><strong> <code>if __name__ == "__main__":</code></strong><br>
